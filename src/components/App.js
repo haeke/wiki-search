@@ -45,7 +45,7 @@ class App extends Component {
       );
     });
     return (
-      <div>
+      <div className="container">
         <Grid centered columns={4}>
           <Grid.Column>
               <Header as='h2' icon>
