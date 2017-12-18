@@ -12,7 +12,7 @@
     "sanitize-html": "^1.16.3",
     "semantic-ui-react": "^0.77.1"
   },
-  "homepage": "https://haeke.github.io/wiki-example/",
+  "homepage": "https://haeke.github.io/wiki-example",
   "devDependencies": {
     "react-scripts": "1.0.17"
   },
