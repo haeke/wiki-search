@@ -1,18 +1,17 @@
 {
-  "name": "wiki-example",
+  "name": "wiki-search",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
     "axios": "^0.17.1",
     "gh-pages": "^1.1.0",
-    "lodash": "^4.17.4",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "regenerator-runtime": "^0.11.1",
     "sanitize-html": "^1.16.3",
     "semantic-ui-react": "^0.77.1"
   },
-  "homepage": "https://haeke.github.io/wiki-example",
+  "homepage": "https://haeke.github.io/wiki-search",
   "devDependencies": {
     "react-scripts": "1.0.17"
   },
