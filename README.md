@@ -1,6 +1,7 @@
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 ## Wikipedia Search
+- Project URL - https://haeke.github.io/wiki-search
 - That provides a list of the first 10 results from Wikipedia that you search for.
 - Queries Wikipedia's API, stores the result in React's state.
 - Provides a brief description of what the results is and also provides a URL for further reading.
