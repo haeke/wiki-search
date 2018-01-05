@@ -38,7 +38,7 @@ class App extends Component {
   render() {
     var info = this.state.results.map((item) => {
       return (
-        <Message key={item.title} divided>
+        <Message key={item.title}>
           <Message.Header><h2>{item.title}</h2><a href={`http://en.wikipedia.org/wiki/${item.title}`}>Article</a></Message.Header>
           <Message.List><p>{sanitizeHTML(item.snippet)}</p></Message.List>
         </Message>
@@ -62,9 +62,9 @@ class App extends Component {
         <Grid centered columns='equal'>
           <Grid.Row mobile={16} computer={16}>
             <Grid.Column width={8}>
-                <div className="ui large input">
+                <div className="ui input">
                 <input ref={input => this.inputterm = input} placeholder='Search...' />
-                <button className="ui button primary button-" type="submit" onClick={() => this.handleClick()}>
+                <button className="ui button primary" type="submit" onClick={() => this.handleClick()}>
                   Search
                 </button>
                 </div>
