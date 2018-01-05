@@ -47,26 +47,29 @@ class App extends Component {
     return (
       <div className="container">
         <Grid centered columns={4}>
-          <Grid.Column>
-              <Header as='h2' icon>
-                <Icon name='settings' />
-                Wikipedia Search
-                <Header.Subheader>
-                  Search for an item to get the top 10 results.
-                </Header.Subheader>
-              </Header>
-          </Grid.Column>
+          <Grid.Row mobile={16} computer={16}>
+            <Grid.Column>
+                <Header as='h2' icon>
+                  <Icon name='settings' />
+                  Wikipedia Search
+                  <Header.Subheader>
+                    Search for an item to get the top 10 results.
+                  </Header.Subheader>
+                </Header>
+            </Grid.Column>
+          </Grid.Row>
         </Grid>
         <Grid centered columns='equal'>
-          <Grid.Column width={8}>
-              <div className="ui large input">
-              <input ref={input => this.inputterm = input} placeholder='Search...' />
-              <button className="ui button primary button-"primary large type="submit" onClick={() => this.handleClick()}>
-                Search
-              </button>
-              </div>
-
-          </Grid.Column>
+          <Grid.Row mobile={16} computer={16}>
+            <Grid.Column width={8}>
+                <div className="ui large input">
+                <input ref={input => this.inputterm = input} placeholder='Search...' />
+                <button className="ui button primary button-" type="submit" onClick={() => this.handleClick()}>
+                  Search
+                </button>
+                </div>
+            </Grid.Column>
+        </Grid.Row>
         </Grid>
         <Grid centered columns={5}>
           <Grid.Column>
