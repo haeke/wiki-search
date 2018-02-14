@@ -11,8 +11,15 @@ class App extends Component {
       results: [],
     };
 
+    this.handleEnter = this.handleEnter.bind(this);
     this.handleClick = this.handleClick.bind(this);
     this.getResults = this.getResults.bind(this);
+  }
+
+  handleEnter(event) {
+    if (event.charCode === 13) {
+      this.handleClick();
+    }
   }
 
   handleClick() {
@@ -61,7 +68,7 @@ class App extends Component {
           <Grid.Row mobile={16} computer={16}>
             <Grid.Column computer={8} tablet={16} mobile={16}>
                 <div className="ui input">
-                <input ref={input => this.inputterm = input} placeholder='Search...' />
+                <input ref={input => this.inputterm = input} placeholder='Search...' onKeyPress={this.handleEnter}/>
                 <button className="ui button primary" type="submit" onClick={() => this.handleClick()}>
                   Search
                 </button>
