@@ -48,7 +48,6 @@ class App extends Component {
       <div className="container">
         <Grid centered columns={4}>
           <Grid.Row mobile={16} computer={16}>
-            <Grid.Column>
                 <Header as='h2' icon>
                   <Icon name='settings' />
                   Wikipedia Search
@@ -56,12 +55,11 @@ class App extends Component {
                     Search for an item to get the top 10 results.
                   </Header.Subheader>
                 </Header>
-            </Grid.Column>
           </Grid.Row>
         </Grid>
         <Grid centered columns='equal'>
           <Grid.Row mobile={16} computer={16}>
-            <Grid.Column width={8}>
+            <Grid.Column computer={8} tablet={16} mobile={16}>
                 <div className="ui input">
                 <input ref={input => this.inputterm = input} placeholder='Search...' />
                 <button className="ui button primary" type="submit" onClick={() => this.handleClick()}>
@@ -71,16 +69,14 @@ class App extends Component {
             </Grid.Column>
         </Grid.Row>
         </Grid>
-        <Grid centered columns={5}>
-          <Grid.Column>
+        <Grid centered columns={6}>
             <h2>Search Results</h2>
-          </Grid.Column>
         </Grid>
         <Grid columns='equal'>
           <Grid.Row>
             <Grid.Column>
             </Grid.Column>
-            <Grid.Column width={8}>
+            <Grid.Column computer={8} tablet={16} mobile={16}>
               {info}
             </Grid.Column>
             <Grid.Column></Grid.Column>
