@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Header, Icon, Grid, Message } from 'semantic-ui-react';
 import axios from 'axios';
 import sanitizeHTML from 'sanitize-html';
+import ReactToolTip from 'react-tooltip';
 
 class App extends Component {
   constructor() {
@@ -68,7 +69,10 @@ class App extends Component {
           <Grid.Row mobile={16} computer={16}>
             <Grid.Column computer={8} tablet={16} mobile={16}>
                 <div className="ui input">
-                <input ref={input => this.inputterm = input} placeholder='Search...' onKeyPress={this.handleEnter}/>
+                <input ref={input => this.inputterm = input} placeholder='Search...' onKeyPress={this.handleEnter} data-tip data-for='cusSearch'/>
+                  <ReactToolTip place="top" id='cusSearch' type='info'>
+                    <span>Enter a search term, then press enter or click on the submit button</span>
+                  </ReactToolTip>
                 <button className="ui button primary" type="submit" onClick={() => this.handleClick()}>
                   Search
                 </button>
