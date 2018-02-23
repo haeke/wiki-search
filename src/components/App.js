@@ -19,7 +19,7 @@ class App extends Component {
 
   componentDidMount() {
     //if there are items in localStorage get them or just render an empty array
-    const results = JSON.parse(localStorage.getItem('search') || []);
+    const results = JSON.parse(localStorage.getItem('search')) || [];
 
     //setState only if there are items in the result after initial mount
     if (results.length > 0) {
@@ -30,7 +30,7 @@ class App extends Component {
   }
 
   handleEnter(event) {
-    //use event delegation to listen for when the enter key is pressed
+    //use event delegation to listen for when the enter key is press
     if (event.charCode === 13) {
       this.handleClick();
     }
@@ -76,7 +76,7 @@ class App extends Component {
           <Grid.Row mobile={16} computer={16}>
             <Grid.Column computer={8} tablet={16} mobile={16}>
                 <div className="ui input">
-                <input ref={input => this.inputterm = input} placeholder='Search...' onKeyPress={this.handleEnter} data-tip data-for='cusSearch' />
+                <input ref={input => this.inputterm = input} placeholder='Search...' onKeyPress={this.handleEnter} data-tip data-for='cusSearch'/>
                 <Grid.Column width={4}>
                   <ReactToolTip place="top" id='cusSearch' type='info'>
                     <span>Enter a search term, then press enter or click on the submit button</span>
