@@ -2,9 +2,9 @@ import React from 'react';
 import sanitizeHTML from 'sanitize-html';
 import { Message } from 'semantic-ui-react';
 
-//stateless component used to print the results or show that there were no results
+//This component is used to print the resulting articles or show that there were no results
 const Articles = ({ results }) => {
-    //conditionally render either No Articles found or the articles with a ternary
+    //conditionally render either No Articles Found or the Articles data
     var info = results.length === 0 ?  (
       <Message>
         <Message.Header>No Articles Found</Message.Header>
@@ -21,7 +21,7 @@ const Articles = ({ results }) => {
     });
     return (
       <div>
-        {info ? info : console.log('no results found')}
+        {info}
       </div>
     );
   };
