@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import { Header, Icon, Grid, Message } from 'semantic-ui-react';
+import { Header, Icon, Grid } from 'semantic-ui-react';
 import axios from 'axios';
-import sanitizeHTML from 'sanitize-html';
 import ReactToolTip from 'react-tooltip';
+import Articles from './Articles';
 
 class App extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       term: '',
       results: [],
@@ -15,6 +15,14 @@ class App extends Component {
     this.handleEnter = this.handleEnter.bind(this);
     this.handleClick = this.handleClick.bind(this);
     this.getResults = this.getResults.bind(this);
+  }
+
+  componentDidMount() {
+    const results = JSON.parse(localStorage.getItem('search') || []);
+
+    this.setState({
+      results: results,
+    });
   }
 
   handleEnter(event) {
@@ -36,6 +44,8 @@ class App extends Component {
     if (event !== '') {
       axios.get(`https://en.wikipedia.org/w/api.php?action=query&origin=*&list=search&srsearch=${event}&prop=info&inprop=url&utf8=&format=json`).then((res) => {
         console.log(res.data.query.search);
+        //set local storage
+        localStorage.setItem('search', JSON.stringify(res.data.query.search));
         this.setState({ results: res.data.query.search });
       });
     }
@@ -44,14 +54,6 @@ class App extends Component {
   }
 
   render() {
-    var info = this.state.results.map((item) => {
-      return (
-        <Message key={item.title}>
-          <Message.Header><h2>{item.title}</h2><a href={`http://en.wikipedia.org/wiki/${item.title}`}>Article</a></Message.Header>
-          <Message.List><p>{sanitizeHTML(item.snippet)}</p></Message.List>
-        </Message>
-      );
-    });
     return (
       <div className="container">
         <Grid centered columns={4}>
@@ -70,9 +72,11 @@ class App extends Component {
             <Grid.Column computer={8} tablet={16} mobile={16}>
                 <div className="ui input">
                 <input ref={input => this.inputterm = input} placeholder='Search...' onKeyPress={this.handleEnter} data-tip data-for='cusSearch'/>
+                <Grid.Column width={4}>
                   <ReactToolTip place="top" id='cusSearch' type='info'>
                     <span>Enter a search term, then press enter or click on the submit button</span>
                   </ReactToolTip>
+                </Grid.Column>
                 <button className="ui button primary" type="submit" onClick={() => this.handleClick()}>
                   Search
                 </button>
@@ -88,7 +92,7 @@ class App extends Component {
             <Grid.Column>
             </Grid.Column>
             <Grid.Column computer={8} tablet={16} mobile={16}>
-              {info}
+              <Articles results={this.state.results}/>
             </Grid.Column>
             <Grid.Column></Grid.Column>
           </Grid.Row>
