@@ -14,7 +14,9 @@ const Articles = ({ results }) => {
     results.map((item) => {
       return (
         <Message key={item.title}>
-          <Message.Header><h2>{item.title}</h2><a href={`http://en.wikipedia.org/wiki/${item.title}`}>Article</a></Message.Header>
+          <Message.Header>
+            <h2>{item.title}</h2>
+            <a href={`http://en.wikipedia.org/wiki/${item.title}`}>Article</a></Message.Header>
           <Message.List><p>{sanitizeHTML(item.snippet)}</p></Message.List>
         </Message>
       );
