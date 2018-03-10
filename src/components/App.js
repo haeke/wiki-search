@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Header, Icon, Grid } from 'semantic-ui-react';
 import axios from 'axios';
-import ReactToolTip from 'react-tooltip';
 import Articles from './Articles';
+import SearchBar from './SearchBar';
 
 class App extends Component {
   constructor(props) {
@@ -75,17 +75,7 @@ class App extends Component {
         <Grid centered columns='equal'>
           <Grid.Row mobile={16} computer={16}>
             <Grid.Column computer={8} tablet={16} mobile={16}>
-                <div className="ui input">
-                <input ref={input => this.inputterm = input} placeholder='Search...' onKeyPress={this.handleEnter} data-tip data-for='cusSearch'/>
-                <Grid.Column width={4}>
-                  <ReactToolTip place="top" id='cusSearch' type='info'>
-                    <span>Enter a search term, then press enter or click on the submit button</span>
-                  </ReactToolTip>
-                </Grid.Column>
-                <button className="ui button primary" type="submit" onClick={() => this.handleClick()}>
-                  Search
-                </button>
-                </div>
+                <SearchBar handleSearch={this.getResults} data-tip data-for='cusSearch' />
             </Grid.Column>
         </Grid.Row>
         </Grid>
