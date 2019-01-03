@@ -5,7 +5,6 @@ import ReactToolTip from "react-tooltip";
 
 //This component is responsible for updating what a user searches for.
 class SearchBar extends Component {
-  //store the term in state
   constructor(props) {
     super(props);
     this.state = {
@@ -13,13 +12,16 @@ class SearchBar extends Component {
     };
   }
 
-  onInputChange(term) {
-    this.setState({
-      term: term
-    });
+  onInputChange = event => {
+    // We can use the event object to get the name and value from the input tag.
+    const { name, value } = event.target;
+    // Use the callback version of setState to ensure the value typed into the input is searched for. Previously, the last letter input was not being passed to the handleSearch function.
+    this.setState(() => ({
+      [name]: value
+    }));
     //pass the term searched for to the app component so that we can query the Wikipedia API
-    this.props.handleSearch(term);
-  }
+    this.props.handleSearch(value);
+  };
   render() {
     return (
       <Grid centered columns="equal">
@@ -29,8 +31,9 @@ class SearchBar extends Component {
               <input
                 className="ui input"
                 placeholder="Search..."
+                name="term"
                 value={this.state.term}
-                onChange={event => this.onInputChange(event.target.value)}
+                onChange={this.onInputChange}
                 data-tip
                 data-for="cusSearch"
               />
