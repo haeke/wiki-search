@@ -20,3 +20,16 @@ body {
 .input {
   width: 100%;
 }
+.footerContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #000;
+  color: #fff;
+  width: 100%;
+  margin-top: auto;
+}
+.footerAnchor {
+  text-decoration: none;
+  color: #2e9797;
+}

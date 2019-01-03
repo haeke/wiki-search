@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import HeaderTitle from "./HeaderTitle";
 import Articles from "./Articles";
 import SearchBar from "./SearchBar";
+import Footer from "./Footer";
 
 import { getSearch } from "../api/wikipedia";
 
@@ -63,6 +64,7 @@ class App extends Component {
           data-for="cusSearch"
         />
         <Articles results={this.state.results} />
+        <Footer />
       </div>
     );
   }
