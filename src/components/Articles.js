@@ -16,11 +16,17 @@ const Articles = ({ results }) => {
         return (
           <Message key={item.title}>
             <Message.Header>
-              <h2>{item.title}</h2>
-              <a href={`http://en.wikipedia.org/wiki/${item.title}`}>Article</a>
+              <a
+                href={`http://en.wikipedia.org/wiki/${item.title}`}
+                target="_blank"
+              >
+                {" "}
+                <h1 className="articleHeader">{item.title}</h1>
+              </a>
             </Message.Header>
+            <hr className="articleRuler" />
             <Message.List>
-              <p>{sanitizeHTML(item.snippet)}</p>
+              <p className="articleDescription">{sanitizeHTML(item.snippet)}</p>
             </Message.List>
           </Message>
         );
@@ -28,7 +34,7 @@ const Articles = ({ results }) => {
     );
   return (
     <React.Fragment>
-      <Grid centered columns={6}>
+      <Grid centered columns={10}>
         <h2>Search Results</h2>
       </Grid>
       <Grid columns="equal">

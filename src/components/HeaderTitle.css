@@ -1,0 +1,20 @@
+.headerTitleWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.headerTitle {
+  margin: 0;
+  color: purple;
+  font-size: 3rem;
+}
+
+.headerIcon {
+  font-size: 1rem;
+}
+
+.headerSubtitle {
+  font-size: 1.75rem;
+}

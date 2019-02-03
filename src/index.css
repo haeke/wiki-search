@@ -1,22 +1,69 @@
+/* 
+font-family: 'Russo One', sans-serif;
+font-family: 'Trirong', serif;
+font-family: 'Biryani', sans-serif;
+*/
+
+:root {
+  --brandColor: #e8d34e;
+  --secondaryColor: #029fe2;
+}
+
+#root {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
 body {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
-  background: #c9d6ff; /* fallback for old browsers */
-  background: -webkit-linear-gradient(
-    to right,
-    #e2e2e2,
-    #c9d6ff
-  ); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(
-    to right,
-    #e2e2e2,
-    #c9d6ff
+  font-family: "Russo One", sans-serif;
+  background: var(
+    --secondaryColor
   ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  font-size: 1.25rem;
 }
-.container {
-  margin-top: 10px;
+
+.mainWrapper {
+  flex: 1;
 }
+
+h1 {
+  font-family: "Trirong", sans-serif;
+}
+
+h2 {
+  font-family: "Trirong", serif;
+}
+
+p {
+  font-family: "Biryani", sans-serif;
+}
+
+.headerWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--brandColor);
+  margin-bottom: 10px;
+  padding: 20px;
+}
+
+.articleHeader {
+  display: inline-block;
+  font-size: 2rem;
+  color: var(--secondaryColor);
+}
+
+.articleRuler {
+  border: 0.2rem solid rgb(142, 1, 105);
+}
+
+.articleDescription {
+  font-size: 1.75rem;
+}
+
 .input {
   width: 100%;
 }
@@ -28,8 +75,12 @@ body {
   color: #fff;
   width: 100%;
   margin-top: auto;
+  padding: 20px;
 }
 .footerAnchor {
   text-decoration: none;
-  color: #2e9797;
+  color: var(--secondaryColor);
+}
+.ui.message:last-child {
+  margin-bottom: 10px;
 }

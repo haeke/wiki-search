@@ -56,16 +56,20 @@ class App extends Component {
 
   render() {
     return (
-      <div className="container">
-        <HeaderTitle />
-        <SearchBar
-          handleSearch={this.getResults}
-          data-tip
-          data-for="cusSearch"
-        />
-        <Articles results={this.state.results} />
+      <React.Fragment>
+        <div className="headerWrapper">
+          <HeaderTitle />
+        </div>
+        <main className="mainWrapper">
+          <SearchBar
+            handleSearch={this.getResults}
+            data-tip
+            data-for="cusSearch"
+          />
+          <Articles results={this.state.results} />
+        </main>
         <Footer />
-      </div>
+      </React.Fragment>
     );
   }
 }
